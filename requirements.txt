@@ -1,0 +1,11 @@
+Telethon~=1.15.0
+beautifulsoup4
+colorama~=0.4.3
+selenium~=3.141.0
+urllib3
+bs4
+requests~=2.24.0
+PySocks~=1.7.1
+fake-useragent
+rq
+
