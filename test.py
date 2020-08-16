@@ -12,37 +12,37 @@ import mss
 import numpy
 import pyautogui
 
-sleep(3)
-with mss.mss() as sct:
-    monitor = {"top": 0, "left": 0, "width": 1366, "height": 768}
-    img = numpy.array(sct.grab(monitor))
-template = cv2.imread("imgs/coinomi_wallet_ltc_icon.png", cv2.IMREAD_GRAYSCALE)
-w, h = template.shape[::-1]
-gray_frame = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-res = cv2.matchTemplate(gray_frame, template, cv2.TM_CCOEFF_NORMED)
-loc = np.where(res >= 0.97)
-print(type(loc))
-print(len(loc))
-print(loc)
-print(loc[0])
-first = True
-for pt in zip(*loc[::-1]):
-    if not first:
-        cv2.rectangle(img, pt, (pt[0] + w, pt[1] + h), (0, 255, 0), 3)
-    else:
-        first = False
-
-cv2.imwrite("output.jpg", img)
-# proxies = []
-# for i in range(20):
-#     x = str(input()).strip().split(':')
-#     y = [x[0], x[1]]
-#     if y not in proxies:
-#         proxies.append(y)
-# print(proxies)
-# pickle.dump(proxies, open(f"proxies.pkl", "wb"))
-# with open("proxies.pkl", 'rb') as f:
-# 	print(pickle.load(f))
+# sleep(3)
+# with mss.mss() as sct:
+#     monitor = {"top": 0, "left": 0, "width": 1366, "height": 768}
+#     img = numpy.array(sct.grab(monitor))
+# template = cv2.imread("imgs/coinomi_wallet_ltc_icon.png", cv2.IMREAD_GRAYSCALE)
+# w, h = template.shape[::-1]
+# gray_frame = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+# res = cv2.matchTemplate(gray_frame, template, cv2.TM_CCOEFF_NORMED)
+# loc = np.where(res >= 0.97)
+# print(type(loc))
+# print(len(loc))
+# print(loc)
+# print(loc[0])
+# first = True
+# for pt in zip(*loc[::-1]):
+#     if not first:
+#         cv2.rectangle(img, pt, (pt[0] + w, pt[1] + h), (0, 255, 0), 3)
+#     else:
+#         first = False
+#
+# cv2.imwrite("output.jpg", img)
+proxies = []
+for i in range(20):
+    x = str(input()).strip().split(':')
+    y = [x[0], x[1]]
+    if y not in proxies:
+        proxies.append(y)
+print(proxies)
+pickle.dump(proxies, open(f"proxies.pkl", "wb"))
+with open("proxies.pkl", 'rb') as f:
+	print(pickle.load(f))
 
 # lenght = len(proxies)
 # n = 100

@@ -192,12 +192,6 @@ class Proxy:
             for j in self.get_proxies_from_checker():
                 res.append([j[0], j[1]])
         print(res)
-        a = []
-        for i in list(set(res)):
-            x = str(i).strip().split(':')
-            y = [x[0], x[1]]
-            if y not in a:
-                a.append(y)
         self.save_proxies_to_file(a)
         self.driver.quit()
 
@@ -230,6 +224,7 @@ class Proxy:
         # ua = UserAgent()
         # options.add_argument(f'user-agent={ua.chrome}')
         self.driver = webdriver.Chrome("chromedriver.exe", options=options)
+        self.driver.set_window_size(1920, 1080)
 
     def new_tab(self, url):
         # self.driver.find_element_by_tag_name("body").send_keys(Keys.CONTROL + "t")
@@ -324,11 +319,11 @@ def copy_telegram_template(filename):
 bots_dir = "E:\Боты"
 days_acc_stay = 10
 coinomi_password = "wallet0159456"
-coinomi = Coinomi()
+# coinomi = Coinomi()
 # coinomi.send_all()
-coinomi.send_to_main_wallet()
+# coinomi.send_to_main_wallet()
 # vpn_on()
-# proxy = Proxy(1000)
+proxy = Proxy(1000)
 # open_telegram("11.07.20 Ваня Христофоров")
 # print(get_completed_bots_from_folder())
 # open_coinomi()
