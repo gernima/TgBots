@@ -18,18 +18,8 @@ from datetime import timedelta, date, datetime
 from tkinter import Tk
 import os
 import shutil
-
-
-def get_code_from_number():
-    SMS_HUB_API_KEY = "36265Ua0c6cb84f62dc4849055d9e5d97d86cb"
-    wrapper = Sms(SMS_HUB_API_KEY)
-    activation = GetNumber(
-        service=SmsService().Youla,
-    ).request(wrapper)
-    input('Press enter if you sms was sent')
-    activation.was_sent().request(wrapper)
-    code = activation.wait_code(wrapper=wrapper)
-    return code
+from random import sample
+import sqlite3
 
 
 class Coinomi:
@@ -120,27 +110,29 @@ def find_patt(image, patt, thres):
     return patt_H, patt_W, zip(*loc[::-1])
 
 
-def find_and_click_img(img_name, percent):
+def find_and_click_img(img_name, percent, x_plus=0, y_plus=0):
     screenshot = ImageGrab.grab()
     img = np.array(screenshot.getdata(), dtype='uint8').reshape((screenshot.size[1], screenshot.size[0], 3))
     patt = cv2.imread(img_name, 0)
     h, w, points = find_patt(img, patt, percent)
     points = list(points)
     if len(points) != 0:
-        pyautogui.moveTo(points[0][0] + w / 2, points[0][1] + h / 2)
+        pyautogui.moveTo(points[0][0] + w / 2 + x_plus, points[0][1] + h / 2 + y_plus)
         pyautogui.click()
 
 
 def get_completed_bots_from_folder():
     files = os.listdir(bots_dir)
     res = []
-    for file in files:
+    db_accounts = [x[0] for x in cur.execute("""Select PHONE from Account""").fetchall()]
+    for i in range(len(files)):
+        file = files[i]
         if "template" not in file and "BANNED" not in file.upper():
-            end_date = list(reversed(list(str(datetime.strptime(".".join(file.split(" ")[0].split(".")), '%d.%m.%y').date() + timedelta(days=days_acc_stay)).split("-"))))
+            end_date = list(reversed(list(str(datetime.strptime(file.split(" ")[0], '%d.%m.%y').date() + timedelta(days=days_acc_stay)).split("-"))))
             end_date = datetime(int(end_date[2]), int(end_date[1]), int(end_date[0]))
             now = list(reversed(str(date.today()).split("-")))
             deadline = datetime(int(now[2]), int(now[1]), int(now[0]))
-            if (file.split(" ")[0] in file) and (deadline >= end_date):
+            if (file.split(" ")[0] in file) and (deadline >= end_date) and (file.split(" ")[-1] not in db_accounts):
                 res.append(file)
     return res
 
@@ -280,52 +272,138 @@ class VPN:
         self.on()
 
 
-class RegApp:
-    def __init__(self, phone):
-        self.phone = phone
+class RegBot:
+    def __init__(self, filename):
+        self.phone = filename.split(' ')[-1]
+        self.password = filename.split(" ")[0].replace('.', '')
         self.url = "https://my.telegram.org/auth?to=apps"
-        self.open_browser()
+        self.groups = ['@LOWCS','@lifeyt','@breakingmash','@ikniga','@yurydud','@audioknigi_channel','@bazabazon','@muzyka_muzika']
+        self.bot_groups = ['@Litecoin_click_bot']
+        self.api_id = ""
+        self.api_hash = ""
+        # self.vpn = VPN()
+        # self.vpn.open()
+        # self.vpn.on()
+        open_telegram(filename)
+        self.add_groups()
+        self.reg_app()
+        sleep(5)
+        close_telegram()
+        sleep(5)
+
+    def save_to_db(self):
+        cur.execute(
+            """INSERT INTO Account(PHONE, PASS, API_ID, API_HASH, ACTIVITY, LITECOIN, DEVICE) VALUES (?,?,?,?,?,?,?);""",
+            (self.phone, self.password, self.api_id, self.api_hash, "ON", pyautogui.prompt('Enter wallet key'), self.get_device()))
+        db.commit()
+
+    def get_ltc_key_from_coinomi(self):
+        wallet = Coinomi()
+        wallet.open()
+        sleep(3)
+        wallet.create_wallet()
+        sleep(3)
+        return wallet.wallet_get_key()
+
+    def get_device(self):
+        return sample([x.strip() for x in UserAgent().random.split('(')[1].split(')')[0].split(';')], 1)[0]
+
+    def get_and_set_api_id_and_hash(self):
+        self.api_id = self.driver.find_element_by_css_selector("#app_edit_form > div:nth-child(3) > div.col-md-7 > span > strong").text
+        self.api_hash = self.driver.find_element_by_css_selector("#app_edit_form > div:nth-child(4) > div.col-md-7 > span").text
 
     def open_browser(self):
         options = Options()
         # options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+        # options.add_argument("--headless")
         options.add_argument("disable-gpu")
         # options.add_argument("--no-sandbox")
         options.add_argument("--disable-extensions")
-        # options.add_argument("--disable-dev-sh-usage")
+        options.add_argument("--disable-dev-sh-usage")
         ua = UserAgent()
         options.add_argument(f'user-agent={ua.chrome}')
         self.driver = webdriver.Chrome(executable_path="chromedriver.exe", options=options)
+        self.driver.set_window_size(1920, 1080)
 
-    def open_site(self):
+    def reg_app(self):
+        self.open_browser()
         self.driver.get(self.url)
+        self.paste_number()
+        self.paste_code()
+        sleep(3)
+        # self.driver.find_element_by_css_selector("#app_title").send_keys("Testing")
+        # self.driver.find_element_by_css_selector("#app_shortname").send_keys("Testing")
+        # self.driver.find_element_by_css_selector("#app_create_form > div:nth-child(6) > div > div:nth-child(5)").click()
+        # self.driver.find_element_by_css_selector("#app_save_btn").click()
+        # sleep(5)
+        self.get_and_set_api_id_and_hash()
+        self.driver.close()
+        self.save_to_db()
 
     def paste_number(self):
         self.driver.find_element_by_css_selector("#my_login_phone").send_keys(self.phone)
         self.driver.find_element_by_css_selector("#my_send_form > div.support_submit > button").click()
 
     def paste_code(self):
-        code = pyautogui.prompt('Enter telegram code for app')
+        code = pyautogui.prompt('Enter telegram code for reg app')
         self.driver.find_element_by_css_selector("#my_password").send_keys(code)
         self.driver.find_element_by_css_selector("#my_login_form > div.support_submit > button").click()
-    # :TODO reg app
+
+    def get_code_from_number(self):
+        self.SMS_HUB_API_KEY = "36265Ua0c6cb84f62dc4849055d9e5d97d86cb"
+        self.wrapper = Sms(self.SMS_HUB_API_KEY)
+        self.phone = GetNumber(
+            service=SmsService().Telegram
+        )
+        self.activation = self.phone.request(self.wrapper)
+
+    def get_code(self):
+        self.activation.was_sent().request(self.wrapper)
+        self.code = self.activation.wait_code(wrapper=self.wrapper)
+
+    def reg_telegram(self):
+        find_and_click_img("imgs/telegram_start.png", 0.90)
+        find_and_click_img("imgs/telegram_login.png", 0.90)
+        find_and_click_img("imgs/telegram_login_phone.png", 0.90)
+
+    def add_groups(self):
+        find_and_click_img("imgs/telegram_search.png", 0.9, x_plus=60)
+        groups = self.bot_groups.copy()
+        groups.extend(sample(self.groups, 5))
+        for group in groups:
+            pyautogui.write(group)
+            sleep(2)
+            find_and_click_img("imgs/telegram_search_results.png", 0.6, y_plus=30)
+            sleep(1)
+            if group in self.bot_groups:
+                find_and_click_img("imgs/telegram_bot_start.png", 0.6)
+            else:
+                sleep(1)
+                find_and_click_img("imgs/telegram_group_join.png", 0.82)
+            find_and_click_img("imgs/telegram_search.png", 0.9, x_plus=60)
+            [pyautogui.press("backspace") for _ in range(len(group))]
+            [pyautogui.press("delete") for _ in range(len(group))]
 
 
 def copy_telegram_template(filename):
     path = "E:/Боты"
-    shutil.copytree(path + "/template", path + str(filename))
+    shutil.copytree(path + "/template", path + f'/{filename}')
 
 
+add_id = 0
+db = sqlite3.connect('Account.db')
+cur = db.cursor()
 bots_dir = "E:\Боты"
-days_acc_stay = 10
+days_acc_stay = 1
 coinomi_password = "wallet0159456"
-# coinomi = Coinomi()
-# coinomi.send_all()
-# coinomi.send_to_main_wallet()
-# vpn_on()
-proxy = Proxy(1000)
-# open_telegram("11.07.20 Ваня Христофоров")
-# print(get_completed_bots_from_folder())
+acc = f"{datetime.today().strftime('%d.%m.%Y')} Леня Толстой"
+res_accs = get_completed_bots_from_folder()
+print(res_accs)
+# copy_telegram_template(acc)
+# open_telegram(acc)
+# for acc in res_accs:
+#     reg = RegBot(acc)
+# proxy = Proxy(1000)
 # open_coinomi()
 # coinomi_wallet_get_key()
 # a = pyautogui.alert('This is an alert box.')
@@ -333,3 +411,4 @@ a = pyautogui.confirm('Программа завершена')
 # a = pyautogui.confirm('Enter option.', buttons=['A', 'B', 'C'])
 # a = pyautogui.prompt('Enter telegram code for app?')
 # a = pyautogui.password('Enter password (text will be hidden)')
+db.close()

@@ -1033,3 +1033,34 @@ INFO     Входим в аккаунт: +79944388496
 INFO     №1 Proxy 193.38.54.142:5555
 ERROR    Failed login account №1, Connection to Telegram failed 5 time(s)
 INFO     №1 Proxy 98.185.94.76:4145
+INFO     Входим в аккаунт: +79944388496
+INFO     №1 Proxy 216.144.228.130:15378
+INFO     Входим в аккаунт: +79944388496
+INFO     №1 Proxy 108.61.75.207:9000
+ERROR    Failed login account №1, Connection to Telegram failed 5 time(s)
+INFO     №1 Proxy 192.252.214.17:4145
+ERROR    Failed login account №1, Connection to Telegram failed 5 time(s)
+INFO     №1 Proxy 108.61.75.207:9000
+INFO     LTC Click Bot
+INFO     №1, balance - 0.00038465
+INFO     №1 Пройдено циклов: 10
+INFO     №1 Пройдено циклов: 20
+INFO     №1 Пройдено циклов: 30
+INFO     Входим в аккаунт: +79944388496
+INFO     №1 Proxy 108.61.75.207:9000
+ERROR    Failed login account №1, Connection to Telegram failed 5 time(s)
+INFO     №1 Proxy 192.111.139.163:4145
+INFO     Входим в аккаунт: +79944388496
+INFO     №1 Proxy 49.12.0.103:10794
+ERROR    Failed login account №1, Connection to Telegram failed 5 time(s)
+INFO     №1 Proxy 104.248.63.18:30588
+INFO     LTC Click Bot
+INFO     №1, balance - 0.00039463
+INFO     №1 Пройдено циклов: 10
+INFO     №1 Пройдено циклов: 20
+INFO     №1 Пройдено циклов: 30
+INFO     №1 Пройдено циклов: 40
+INFO     Входим в аккаунт: +79944388496
+INFO     №1 Proxy 108.61.75.207:9000
+ERROR    Failed login account №1, Connection to Telegram failed 5 time(s)
+INFO     №1 Proxy 98.143.145.29:62354
