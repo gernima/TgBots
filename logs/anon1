@@ -1075,3 +1075,12 @@ INFO     №1 Proxy 192.252.209.155:14455
 ERROR    Failed login account №1, list indices must be integers or slices, not str
 INFO     2020-09-13 09:36:13.543481 Входим в аккаунт: +79918197059
 INFO     2020-09-13 09:37:47.261806 Входим в аккаунт: +79918197059
+INFO     2020-09-13 20:36:07.727579 Входим в аккаунт: +79918197059
+INFO     №1 Proxy 157.230.13.183:49984
+ERROR    Failed login account №1, list indices must be integers or slices, not str
+INFO     2020-09-13 20:37:01.152179 Входим в аккаунт: +79918197059
+INFO     №1 Proxy 81.2.251.160:9050
+ERROR    Failed login account №1, list indices must be integers or slices, not str
+INFO     2020-09-13 20:37:45.483617 Входим в аккаунт: +79918197059
+INFO     №1 Proxy 157.230.13.183:53355
+INFO     LTC Click Bot

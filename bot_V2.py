@@ -124,9 +124,9 @@ def check_withdraw(client, x, tegmo, bot, logger):
         withdraw(client, x, tegmo, bot, logger)
 
 
-args = argv[1].split(' ')
-x = int(args[0])
-# x = 1
+# args = argv[1].split(' ')
+# x = int(args[0])
+x = 1
 # shift1 = int(args[0])
 # shift2 = int(args[1])
 
@@ -157,7 +157,7 @@ while ok is False:
         logger.info(f"№{x} Proxy {ip}:{port}")
         client = auth_client(filename, x, ip, port)
         password = lambda x: x
-        client.start(password=password([x]["PASS"]))
+        client.start(password=password(dict_db[x]["PASS"]))
         ok = True
     except Exception as e:
         logger.error(f"Failed login account №{x}, {e}")
