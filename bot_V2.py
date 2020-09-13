@@ -22,6 +22,7 @@ from telethon.tl.functions.messages import GetBotCallbackAnswerRequest
 from sys import argv
 from threading import Lock
 import pickle
+import datetime
 
 lock = Lock()
 
@@ -41,14 +42,15 @@ def get_data_from_db():
     a['len'] = len(b)
     for i in b:
         i = i[0]
-        a[i] = {'PHONE': '', 'PASS': '', 'API_ID': '', 'API_HASH': '', 'LITECOIN': '', 'DEVICE': ''}
-        a[i]['PHONE'] = cur.execute(f"SELECT PHONE FROM Account WHERE ID = '{i}'").fetchone()[0]
-        a[i]['PASS'] = cur.execute(f"SELECT PASS FROM Account WHERE ID = '{i}'").fetchone()[0]
-        a[i]['API_ID'] = cur.execute(f"SELECT API_ID FROM Account WHERE ID = '{i}'").fetchone()[0]
-        a[i]['API_HASH'] = cur.execute(f"SELECT API_HASH FROM Account WHERE ID = '{i}'").fetchone()[0]
-        a[i]['LITECOIN'] = cur.execute(f"SELECT LITECOIN FROM Account WHERE ID = '{i}'").fetchone()[0]
-        a[i]['DEVICE'] = cur.execute(f"SELECT DEVICE FROM Account WHERE ID = '{i}'").fetchone()[0]
-        a[i]["BALANCE"] = float()
+        if cur.execute(f"""Select ACTIVITY from Account WHERE ID = '{i}'""").fetchone()[0].strip() == "ON":
+            a[i] = {'PHONE': '', 'PASS': '', 'API_ID': '', 'API_HASH': '', 'LITECOIN': '', 'DEVICE': ''}
+            a[i]['PHONE'] = cur.execute(f"SELECT PHONE FROM Account WHERE ID = '{i}'").fetchone()[0]
+            a[i]['PASS'] = cur.execute(f"SELECT PASS FROM Account WHERE ID = '{i}'").fetchone()[0]
+            a[i]['API_ID'] = cur.execute(f"SELECT API_ID FROM Account WHERE ID = '{i}'").fetchone()[0]
+            a[i]['API_HASH'] = cur.execute(f"SELECT API_HASH FROM Account WHERE ID = '{i}'").fetchone()[0]
+            a[i]['LITECOIN'] = cur.execute(f"SELECT LITECOIN FROM Account WHERE ID = '{i}'").fetchone()[0]
+            a[i]['DEVICE'] = cur.execute(f"SELECT DEVICE FROM Account WHERE ID = '{i}'").fetchone()[0]
+            a[i]["BALANCE"] = float()
     return a
     # finally:
     #     lock.release()
@@ -123,9 +125,11 @@ def check_withdraw(client, x, tegmo, bot, logger):
 
 
 args = argv[1].split(' ')
-shift1 = int(args[0])
-shift2 = int(args[1])
-x = int(args[2])
+x = int(args[0])
+# x = 1
+# shift1 = int(args[0])
+# shift2 = int(args[1])
+
 ua = FakeUserAgent()
 db = sqlite3.connect('Account.db')
 cur = db.cursor()
@@ -145,14 +149,15 @@ ch.setLevel(logging.INFO)
 formatter = logging.Formatter('%(levelname)-8s %(message)s')
 ch.setFormatter(formatter)
 logger.addHandler(ch)
-logger.info("Входим в аккаунт: " + str(dict_db[x]["PHONE"]))
+logger.info(f"{datetime.datetime.now()} Входим в аккаунт: " + str(dict_db[x]["PHONE"]))
 ok = False
 while ok is False:
     try:
         ip, port = get_random_proxy()
         logger.info(f"№{x} Proxy {ip}:{port}")
         client = auth_client(filename, x, ip, port)
-        client.start(password=dict_db[x]["PASS"])
+        password = lambda x: x
+        client.start(password=password([x]["PASS"]))
         ok = True
     except Exception as e:
         logger.error(f"Failed login account №{x}, {e}")
@@ -160,8 +165,6 @@ while ok is False:
 
 while True:
     print("Очередь аккаунта № " + str(x))
-    if x == shift2 + 1:
-        x = shift1 + 1
     for bot in bots:
         logger.info(bot)
         n = 0
@@ -180,12 +183,12 @@ while True:
                 # logger.info(f"№{x}, Нет заданий уже: " + str(u) + " раз")
                 pass
             if u == 5:
-                logger.info(f'{x} Переходим на другого бота, нет заданий')
+                logger.info(f'{datetime.datetime.now()} №{x} Переходим на другого бота, нет заданий')
                 break
             if n % 10 == 0 and n != 0:
-                logger.info(f"№{x} Пройдено циклов: " + str(n))
+                logger.info(f"{datetime.datetime.now()} №{x} Пройдено циклов: " + str(n))
             if n == 1000:
-                logger.info(f'{x} Переходим на другого бота, лимит заданий')
+                logger.info(f'{datetime.datetime.now()} №{x} Переходим на другого бота, лимит заданий')
                 break
             msgs = client.get_messages(tegmo, limit=1)
             for mes in msgs:

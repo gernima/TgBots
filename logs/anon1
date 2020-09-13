@@ -1064,3 +1064,14 @@ INFO     Входим в аккаунт: +79944388496
 INFO     №1 Proxy 108.61.75.207:9000
 ERROR    Failed login account №1, Connection to Telegram failed 5 time(s)
 INFO     №1 Proxy 98.143.145.29:62354
+INFO     Входим в аккаунт: +79918197059
+INFO     №1 Proxy 174.64.199.79:4145
+ERROR    Failed login account №1, list indices must be integers or slices, not str
+INFO     Входим в аккаунт: +79918197059
+INFO     №1 Proxy 192.111.137.37:4145
+ERROR    Failed login account №1, list indices must be integers or slices, not str
+INFO     Входим в аккаунт: +79918197059
+INFO     №1 Proxy 192.252.209.155:14455
+ERROR    Failed login account №1, list indices must be integers or slices, not str
+INFO     2020-09-13 09:36:13.543481 Входим в аккаунт: +79918197059
+INFO     2020-09-13 09:37:47.261806 Входим в аккаунт: +79918197059
