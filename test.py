@@ -14,11 +14,21 @@ import pyautogui
 from fake_useragent import UserAgent
 from random import sample
 
+x = 1
+dict_db = [1, 2,3,4,5]
+for i in range(5):
+    if x in dict_db:
+        print(1, x)
+    if x == 2:
+        x = 1
+    else:
+        x = 2
+
 # with open("Allproxies.pkl", 'rb') as f:
 #     proxies = pickle.load(f)
-with open("proxies.pkl", 'rb') as f:
-    a = pickle.load(f)
-print(len(a))
+# with open("proxies.pkl", 'rb') as f:
+#     a = pickle.load(f)
+# print(len(a))
 # a = []
 # print(a)
 # for i in range(50):

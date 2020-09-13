@@ -22,7 +22,8 @@ db = sqlite3.connect('Account.db')
 cur = db.cursor()
 n = [x[0] for x in cur.execute("Select ID from Account").fetchall()][-1]
 db.close()
-for i in range(n):
+for i in range(0, 1, 2):
+    print(i + 1)
     thread = Thread(target=start_process, args=(i + 1,))
     thread.start()
     time.sleep(1)

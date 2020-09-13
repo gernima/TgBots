@@ -1,18 +1,10 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
-from telethon import sync, events
 import requests
-import json
-import hashlib
 import time
 import re
 from telethon import TelegramClient
-import webbrowser
 import urllib.request
-import os
 import sqlite3
 from fake_useragent import FakeUserAgent
 from socks import SOCKS5
@@ -124,9 +116,9 @@ def check_withdraw(client, x, tegmo, bot, logger):
         withdraw(client, x, tegmo, bot, logger)
 
 
-# args = argv[1].split(' ')
-# x = int(args[0])
-x = 1
+args = argv[1].split(' ')
+y = int(args[0])
+# x = 1
 # shift1 = int(args[0])
 # shift2 = int(args[1])
 
@@ -136,7 +128,7 @@ cur = db.cursor()
 # bots = ['LTC Click Bot', 'BTC Click Bot', 'ZEC Click Bot', 'BCH Click Bot', 'DOGE Click Bot']
 bots = ['LTC Click Bot']
 dict_db = get_data_from_db()
-filename = f"anon{x}"
+filename = f"anon{y}"
 logger = logging.getLogger(f'logs/{filename}')
 logger.setLevel(logging.INFO)
 con = logging.StreamHandler()
@@ -149,21 +141,22 @@ ch.setLevel(logging.INFO)
 formatter = logging.Formatter('%(levelname)-8s %(message)s')
 ch.setFormatter(formatter)
 logger.addHandler(ch)
-logger.info(f"{datetime.datetime.now()} Входим в аккаунт: " + str(dict_db[x]["PHONE"]))
-ok = False
-while ok is False:
-    try:
-        ip, port = get_random_proxy()
-        logger.info(f"№{x} Proxy {ip}:{port}")
-        client = auth_client(filename, x, ip, port)
-        password = lambda x: x
-        client.start(password=password(dict_db[x]["PASS"]))
-        ok = True
-    except Exception as e:
-        logger.error(f"Failed login account №{x}, {e}")
-        time.sleep(300)
-
+logger.info(f"{datetime.datetime.now()} Входим в аккаунт: " + str(dict_db[y]["PHONE"]))
+x = y
 while True:
+    ok = False
+    if x in dict_db:
+        while ok is False:
+            try:
+                ip, port = get_random_proxy()
+                logger.info(f"№{x} Proxy {ip}:{port}")
+                client = auth_client(filename, x, ip, port)
+                password = lambda x: x
+                client.start(password=password(dict_db[x]["PASS"]))
+                ok = True
+            except Exception as e:
+                logger.error(f"Failed login account №{x}, {e}")
+                time.sleep(300)
     print("Очередь аккаунта № " + str(x))
     for bot in bots:
         logger.info(bot)
@@ -274,7 +267,10 @@ while True:
                         except:
                             time.sleep(10)
         check_withdraw(client, x, tegmo, bot, logger)
-    # x = x + 1
     logger.info(f"№{x}, Wait")
     time.sleep(900)
     logger.removeHandler(ch)
+    if x == y + 1:
+        x = y
+    else:
+        x = y + 1
