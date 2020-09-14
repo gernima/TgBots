@@ -124,9 +124,9 @@ def check_withdraw(client, x, tegmo, bot, logger):
         withdraw(client, x, tegmo, bot, logger)
 
 
-# args = argv[1].split(' ')
-# x = int(args[0])
-x = 2
+args = argv[1].split(' ')
+x = int(args[0])
+# x = 2
 ua = FakeUserAgent()
 db = sqlite3.connect('Account.db')
 cur = db.cursor()
