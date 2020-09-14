@@ -27,7 +27,7 @@ from_n = int(argv[1]) - 1
 to_n = int(argv[2])
 print(f"Start bots from {from_n} to {to_n}")
 for i in range(from_n, to_n):
-    print(i)
-    # thread = Thread(target=start_process, args=(i + 1,))
-    # thread.start()
-    # time.sleep(1)
+    # print(i)
+    thread = Thread(target=start_process, args=(i + 1,))
+    thread.start()
+    time.sleep(1)
