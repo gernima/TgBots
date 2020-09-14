@@ -66,7 +66,7 @@ class RunChromeTests:
     def testMethod(self):
         selenium_url = "http://localhost:4444/wd/hub"
         options = Options()
-        options.add_argument(f'user-agent={ua.chrome}')
+        # options.add_argument(f'user-agent={ua.chrome}')
         caps = {'browserName': 'chrome'}
         driver = webdriver.Remote(command_executor=selenium_url, desired_capabilities=caps, options=options)
         driver.maximize_window()
