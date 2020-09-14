@@ -26,7 +26,9 @@ input("Нажми Enter чтобы запустить...")
 args = argv[1].split(' ')
 from_n = int(args[0]) - 1
 to_n = int(args[0])
+print(f"Start bots from {from_n} to {to_n}")
 for i in range(from_n, to_n):
-    thread = Thread(target=start_process, args=(i + 1,))
-    thread.start()
-    time.sleep(1)
+    print(i)
+    # thread = Thread(target=start_process, args=(i + 1,))
+    # thread.start()
+    # time.sleep(1)
