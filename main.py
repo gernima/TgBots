@@ -24,8 +24,9 @@ input("Нажми Enter чтобы запустить...")
 # n = [x[0] for x in cur.execute("Select ID from Account").fetchall()][-1]
 # db.close()
 args = argv[1].split(' ')
-n = int(args[0])
-for i in range(n):
+from_n = int(args[0]) - 1
+to_n = int(args[0])
+for i in range(from_n, to_n):
     thread = Thread(target=start_process, args=(i + 1,))
     thread.start()
     time.sleep(1)
