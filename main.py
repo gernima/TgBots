@@ -23,10 +23,8 @@ input("Нажми Enter чтобы запустить...")
 # cur = db.cursor()
 # n = [x[0] for x in cur.execute("Select ID from Account").fetchall()][-1]
 # db.close()
-args = argv[1].split(' ')
-print(args)
-from_n = int(args[0]) - 1
-to_n = int(args[0])
+from_n = int(argv[1]) - 1
+to_n = int(argv[2])
 print(f"Start bots from {from_n} to {to_n}")
 for i in range(from_n, to_n):
     print(i)
