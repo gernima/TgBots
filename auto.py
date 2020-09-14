@@ -157,51 +157,51 @@ class Proxy:
         # proxies = []
         self.ms = ms
         self.proxies = []
-        # for archive in archives:
-        #     self.driver.get(archive)
-        #     self.proxies.extend(self.get_proxies_from_archive().split('\n'))
-        with open("proxies.pkl", 'rb') as f:
-            self.proxies = pickle.load(f)
-        n = 1000
-        handle = 0
-        lenght = len(self.proxies)
-        tf = False
-        for i in range(0, lenght, n):
-            if tf:
-                self.new_tab(self.checker)
-                handle += 1
-                self.driver.switch_to.window(self.driver.window_handles[handle])
-            else:
-                self.driver.get(self.checker)
-            tf = True
-            self.paste_proxies("\n".join(self.proxies[i: i + n]))
-        WebDriverWait(self.driver, 3)
         res = []
-        for i in range(handle + 1):
-            self.driver.switch_to.window(self.driver.window_handles[i])
+        print(archives)
+        for archive in archives:
+            self.driver.get(archive)
+            sleep(5)
+            # print(self.get_proxies_from_checker())
             for j in self.get_proxies_from_checker():
-                res.append([j[0], j[1]])
+                a = j.split(":")
+                res.append([a[0], a[1]])
+            sleep(5)
+            # for j in self.get_proxies_from_checker():
+            #     res.append([j[0], j[1]])
+        # with open("proxies.pkl", 'rb') as f:
+        #     self.proxies = pickle.load(f)
+        # n = 1000
+        # handle = 0
+        lenght = len(self.proxies)
+        # tf = False
+        # for i in range(0, lenght, n):
+        #     if tf:
+        #         self.new_tab(self.checker)
+        #         handle += 1
+        #         self.driver.switch_to.window(self.driver.window_handles[handle])
+        #     else:
+        #         self.driver.get(self.checker)
+        #     tf = True
+        #     self.paste_proxies("\n".join(self.proxies[i: i + n]))
         print(res)
         self.save_proxies_to_file(res)
         self.driver.quit()
 
     def get_proxies_from_checker(self):
-        try:
-            self.driver.find_element_by_xpath('//*[@id="app"]/div[2]/div[2]/div/div[2]/div/div[1]/div[1]/select[1]').click()
-            self.driver.find_element_by_xpath('//*[@id="app"]/div[2]/div[2]/div/div[2]/div/div[1]/div[1]/select[1]/option[3]').click()
-            self.driver.find_element_by_xpath('//*[@id="app"]/div[2]/div[2]/div/div[2]/div/div[1]/div[1]/select[3]').click()
-            self.driver.find_element_by_xpath('//*[@id="app"]/div[2]/div[2]/div/div[2]/div/div[1]/div[1]/select[3]/option[1]').click()
-            WebDriverWait(self.driver, 5)
-            tdbody = self.driver.find_element_by_xpath('//*[@id="resultTable"]/tbody')
-            trs = tdbody.find_elements_by_css_selector('tr')
-            res = []
-            for i in trs:
-                ms = int(i.find_element_by_css_selector('td:nth-child(6) > div > span').text.replace(' ms', ''))
-                if ms <= self.ms:
-                    res.append(i.find_element_by_css_selector('td:nth-child(2) > span').text)
-            return res
-        except:
-            pass
+        self.driver.find_element_by_xpath('/html/body/div/div[2]/div/div[1]/div/div[1]/div[1]/select[1]').click()
+        self.driver.find_element_by_xpath('/html/body/div/div[2]/div/div[1]/div/div[1]/div[1]/select[1]/option[3]').click()
+        self.driver.find_element_by_xpath('/html/body/div/div[2]/div/div[1]/div/div[1]/div[1]/select[3]').click()
+        self.driver.find_element_by_xpath('/html/body/div/div[2]/div/div[1]/div/div[1]/div[1]/select[3]/option[1]').click()
+        WebDriverWait(self.driver, 5)
+        tdbody = self.driver.find_element_by_xpath('/html/body/div/div[2]/div/div[2]/div/div/table/tbody')
+        trs = tdbody.find_elements_by_css_selector('tr')
+        res = []
+        for i in trs:
+            ms = int(i.find_element_by_css_selector('td:nth-child(5) > div > span').text.replace(' ms', ''))
+            if ms <= self.ms:
+                res.append(i.find_element_by_css_selector('td:nth-child(1)').text)
+        return res
 
     def save_proxies_to_file(self, a):
         pickle.dump(a, open(f"proxies.pkl", "wb"))
@@ -246,6 +246,7 @@ class Proxy:
         self.driver.find_element_by_xpath('//*[@id="app"]/div[2]/div/div[1]/div/div[1]/div[1]/select[1]/option[3]').click()
         # WebDriverWait(self.driver, 5)
         sleep(5)
+        # return self.get_proxies_from_checker()
         elem = self.driver.find_element_by_css_selector('#find_result')
         elem.click()
         elem.send_keys(Keys.CONTROL + "c")
@@ -420,9 +421,10 @@ cur = db.cursor()
 bots_dir = "E:\Боты"
 days_acc_stay = 1
 coinomi_password = "wallet0159456"
-res_accs = get_completed_bots_from_folder()
-print(res_accs)
-RegBot(res_accs[0])
+Proxy(1000)
+# res_accs = get_completed_bots_from_folder()
+# print(res_accs)
+# RegBot(res_accs[0])
 # RegBot("28.08.20 Антон Лапенко +380935312119")
 # for acc in res_accs:
 #     RegBot(acc)
