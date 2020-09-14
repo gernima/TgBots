@@ -1084,3 +1084,22 @@ ERROR    Failed login account №1, list indices must be integers or slices, not s
 INFO     2020-09-13 20:37:45.483617 Входим в аккаунт: +79918197059
 INFO     №1 Proxy 157.230.13.183:53355
 INFO     LTC Click Bot
+INFO     2020-09-14 19:20:10.477397 Входим в аккаунт: +79918197059
+INFO     №1 Proxy 158.101.199.227:3128
+INFO     2020-09-14 19:23:37.446262 Входим в аккаунт: +79918197059
+INFO     №1 Proxy 89.145.161.71:1080
+ERROR    Failed login account №1, Connection to Telegram failed 5 time(s)
+INFO     2020-09-14 19:24:19.859225 Входим в аккаунт: +79918197059
+INFO     №1 Proxy 5.133.109.24:30804
+ERROR    Failed login account №1, Connection to Telegram failed 5 time(s)
+INFO     2020-09-14 20:14:41.809263 Входим в аккаунт: +79918197059
+INFO     №1 Proxy 89.145.161.71:1080
+ERROR    Failed login account №1, Connection to Telegram failed 5 time(s)
+INFO     2020-09-14 20:15:20.047249 Входим в аккаунт: +79918197059
+INFO     №1 Proxy 176.192.123.82:10568
+INFO     2020-09-14 20:17:20.500631 Входим в аккаунт: +79918197059
+INFO     №1 Proxy 45.80.68.206:1080
+ERROR    Failed login account №1, Connection to Telegram failed 5 time(s)
+INFO     2020-09-14 20:22:44.576912 Входим в аккаунт: +79918197059
+INFO     №1 Proxy 45.80.68.68:1080
+ERROR    Failed login account №1, Connection to Telegram failed 5 time(s)

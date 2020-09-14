@@ -1,10 +1,18 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from telethon import sync, events
 from selenium.webdriver.chrome.options import Options
 import requests
+import json
+import hashlib
 import time
 import re
 from telethon import TelegramClient
+import webbrowser
 import urllib.request
+import os
 import sqlite3
 from fake_useragent import FakeUserAgent
 from socks import SOCKS5
@@ -17,11 +25,11 @@ import pickle
 import datetime
 
 lock = Lock()
+with open("proxies.pkl", 'rb') as f:
+    proxies = list(pickle.load(f))
 
 
 def get_random_proxy():
-    with open("proxies.pkl", 'rb') as f:
-        proxies = pickle.load(f)
     proxy = proxies[randint(0, len(proxies) - 1)]
     return str(proxy[0]), int(proxy[1])
 
@@ -116,12 +124,9 @@ def check_withdraw(client, x, tegmo, bot, logger):
         withdraw(client, x, tegmo, bot, logger)
 
 
-args = argv[1].split(' ')
-x = int(args[0])
-# x = 1
-# shift1 = int(args[0])
-# shift2 = int(args[1])
-
+# args = argv[1].split(' ')
+# x = int(args[0])
+x = 2
 ua = FakeUserAgent()
 db = sqlite3.connect('Account.db')
 cur = db.cursor()
@@ -144,8 +149,8 @@ logger.addHandler(ch)
 logger.info(f"{datetime.datetime.now()} Входим в аккаунт: " + str(dict_db[x]["PHONE"]))
 ok = False
 while ok is False:
+    ip, port = get_random_proxy()
     try:
-        ip, port = get_random_proxy()
         logger.info(f"№{x} Proxy {ip}:{port}")
         client = auth_client(filename, x, ip, port)
         password = lambda x: x
@@ -153,6 +158,9 @@ while ok is False:
         ok = True
     except Exception as e:
         logger.error(f"Failed login account №{x}, {e}")
+        # proxies.remove([ip, str(port)])
+        # pickle.dump(proxies, open(f"proxies.pkl", "wb"))
+        # print(f"№{x} remove proxy {ip}:{port} n-proxies:{len(proxies)}")
         time.sleep(300)
 while True:
     print("Очередь аккаунта № " + str(x))
