@@ -162,28 +162,11 @@ class Proxy:
         for archive in archives:
             self.driver.get(archive)
             sleep(5)
-            # print(self.get_proxies_from_checker())
             for j in self.get_proxies_from_checker():
                 a = j.split(":")
                 res.append([a[0], a[1]])
             sleep(5)
-            # for j in self.get_proxies_from_checker():
-            #     res.append([j[0], j[1]])
-        # with open("proxies.pkl", 'rb') as f:
-        #     self.proxies = pickle.load(f)
-        # n = 1000
-        # handle = 0
-        lenght = len(self.proxies)
-        # tf = False
-        # for i in range(0, lenght, n):
-        #     if tf:
-        #         self.new_tab(self.checker)
-        #         handle += 1
-        #         self.driver.switch_to.window(self.driver.window_handles[handle])
-        #     else:
-        #         self.driver.get(self.checker)
-        #     tf = True
-        #     self.paste_proxies("\n".join(self.proxies[i: i + n]))
+        print(len(res))
         print(res)
         self.save_proxies_to_file(res)
         self.driver.quit()
