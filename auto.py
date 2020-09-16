@@ -409,13 +409,13 @@ cur = db.cursor()
 bots_dir = "E:\Боты"
 days_acc_stay = 0
 coinomi_password = "wallet0159456"
-# Proxy(1000)
+Proxy(1000)
 # res_accs = get_completed_bots_from_folder()
 # print(res_accs)
 # RegBot(res_accs[0])
-coinomi = Coinomi()
-for i in range(6):
-    coinomi.create_wallet()
+# coinomi = Coinomi()
+# for i in range(6):
+#     coinomi.create_wallet()
 # print(coinomi.wallet_get_key())
 # a = pyautogui.alert('This is an alert box.')
 a = pyautogui.confirm('Программа завершена')
