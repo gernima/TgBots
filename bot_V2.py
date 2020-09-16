@@ -24,7 +24,6 @@ from threading import Lock
 import pickle
 import datetime
 
-lock = Lock()
 with open("proxies.pkl", 'rb') as f:
     proxies = list(pickle.load(f))
 

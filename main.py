@@ -3,7 +3,7 @@ import subprocess
 import sys
 from colorama import init, Fore, Back, Style
 import time
-from threading import Thread
+from threading import Thread, Lock
 import sqlite3
 from sys import argv
 
@@ -18,25 +18,28 @@ def start_process(x):
 
 
 def get_data_from_db():
-    # try:
-    #     lock.acquire(True)
-    a = {}
-    b = cur.execute("Select ID from Account").fetchall()
-    a['len'] = len(b)
-    for i in b:
-        i = i[0]
-        if cur.execute(f"""Select ACTIVITY from Account WHERE ID = '{i}'""").fetchone()[0].strip() == "ON":
-            a[i] = {'PHONE': '', 'PASS': '', 'API_ID': '', 'API_HASH': '', 'LITECOIN': '', 'DEVICE': ''}
-            a[i]['PHONE'] = cur.execute(f"SELECT PHONE FROM Account WHERE ID = '{i}'").fetchone()[0]
-            a[i]['PASS'] = cur.execute(f"SELECT PASS FROM Account WHERE ID = '{i}'").fetchone()[0]
-            a[i]['API_ID'] = cur.execute(f"SELECT API_ID FROM Account WHERE ID = '{i}'").fetchone()[0]
-            a[i]['API_HASH'] = cur.execute(f"SELECT API_HASH FROM Account WHERE ID = '{i}'").fetchone()[0]
-            a[i]['LITECOIN'] = cur.execute(f"SELECT LITECOIN FROM Account WHERE ID = '{i}'").fetchone()[0]
-            a[i]['DEVICE'] = cur.execute(f"SELECT DEVICE FROM Account WHERE ID = '{i}'").fetchone()[0]
-            a[i]["BALANCE"] = float()
-    return a
+    try:
+        lock.acquire(True)
+        a = {}
+        b = cur.execute("Select ID from Account").fetchall()
+        a['len'] = len(b)
+        for i in b:
+            i = i[0]
+            if cur.execute(f"""Select ACTIVITY from Account WHERE ID = '{i}'""").fetchone()[0].strip() == "ON":
+                a[i] = {'PHONE': '', 'PASS': '', 'API_ID': '', 'API_HASH': '', 'LITECOIN': '', 'DEVICE': ''}
+                a[i]['PHONE'] = cur.execute(f"SELECT PHONE FROM Account WHERE ID = '{i}'").fetchone()[0]
+                a[i]['PASS'] = cur.execute(f"SELECT PASS FROM Account WHERE ID = '{i}'").fetchone()[0]
+                a[i]['API_ID'] = cur.execute(f"SELECT API_ID FROM Account WHERE ID = '{i}'").fetchone()[0]
+                a[i]['API_HASH'] = cur.execute(f"SELECT API_HASH FROM Account WHERE ID = '{i}'").fetchone()[0]
+                a[i]['LITECOIN'] = cur.execute(f"SELECT LITECOIN FROM Account WHERE ID = '{i}'").fetchone()[0]
+                a[i]['DEVICE'] = cur.execute(f"SELECT DEVICE FROM Account WHERE ID = '{i}'").fetchone()[0]
+                a[i]["BALANCE"] = float()
+        return a
+    finally:
+        lock.release()
 
 
+lock = Lock()
 db = sqlite3.connect('Account.db')
 cur = db.cursor()
 dict_db = get_data_from_db()
