@@ -129,7 +129,7 @@ def get_completed_bots_from_folder():
     db_accounts = [x[0] for x in cur.execute("""Select PHONE from Account""").fetchall()]
     for i in range(len(files)):
         file = files[i]
-        if "template" not in file and "BANNED" not in file.upper():
+        if "template" not in file and "BANNED" not in file.upper() and "копия" not in file.lower():
             end_date = list(reversed(list(str(datetime.strptime(file.split(" ")[0], '%d.%m.%y').date() + timedelta(days=days_acc_stay)).split("-"))))
             end_date = datetime(int(end_date[2]), int(end_date[1]), int(end_date[0]))
             now = list(reversed(str(date.today()).split("-")))
@@ -281,7 +281,8 @@ class RegBot:
         # self.vpn.on()
 
         open_telegram(filename)
-        pyautogui.prompt('Open Tg')
+        sleep(1)
+        # pyautogui.prompt('Open Tg')
         self.add_groups()
         self.reg_app()
         self.create_anon()
@@ -339,9 +340,13 @@ class RegBot:
         self.paste_number()
         self.paste_code()
         sleep(3)
-        self.driver.find_element_by_css_selector("#app_title").send_keys("Testing")
-        self.driver.find_element_by_css_selector("#app_shortname").send_keys("Testing")
+        titles = ["MyTestingApp", "Testing", "MyFavApp", "OurFavApp", "DontApp", "MyTestApp", "AppForTest", "TestingmyApp"]
+        names = ["MyTestApp", "TestAppFT", "TestApp", "MyFavAppT", "OurFavAppT", "DoMyApp", "MyTestingApp", "AppForTesting", "TestmyApp"]
+        self.driver.find_element_by_css_selector("#app_title").send_keys(sample(titles, 1)[0])
+        self.driver.find_element_by_css_selector("#app_shortname").send_keys(sample(names, 1)[0])
+        sleep(1)
         self.driver.find_element_by_css_selector("#app_create_form > div:nth-child(6) > div > div:nth-child(5)").click()
+        sleep(1)
         self.driver.find_element_by_css_selector("#app_save_btn").click()
         sleep(5)
         self.get_and_set_api_id_and_hash()
@@ -402,25 +407,15 @@ add_id = 0
 db = sqlite3.connect('Account.db')
 cur = db.cursor()
 bots_dir = "E:\Боты"
-days_acc_stay = 1
+days_acc_stay = 0
 coinomi_password = "wallet0159456"
-Proxy(500)
+# Proxy(1000)
 # res_accs = get_completed_bots_from_folder()
 # print(res_accs)
 # RegBot(res_accs[0])
-# RegBot("28.08.20 Антон Лапенко +380935312119")
-# for acc in res_accs:
-#     RegBot(acc)
-#     sleep(10)
-# close_telegram()
-# copy_telegram_template(acc)
-# open_telegram(acc)
-# for acc in res_accs:
-#     reg = RegBot(acc)
-# proxy = Proxy(1000)
-# coinomi = Coinomi()
-# for i in range(5):
-#     coinomi.create_wallet()
+coinomi = Coinomi()
+for i in range(6):
+    coinomi.create_wallet()
 # print(coinomi.wallet_get_key())
 # a = pyautogui.alert('This is an alert box.')
 a = pyautogui.confirm('Программа завершена')

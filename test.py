@@ -14,6 +14,7 @@ import pyautogui
 from fake_useragent import UserAgent
 from random import sample
 
+print(sample([1,2,3,4,5], 1))
 # x = 1
 # dict_db = [1, 2,3,4,5]
 # for i in range(5):
@@ -40,8 +41,8 @@ from random import sample
 #     #     proxies.append(y)
 # # print(a)
 # pickle.dump(a, open(f"proxies.pkl", "wb"))
-with open("proxies.pkl", 'rb') as f:
-    print(pickle.load(f))
+# with open("proxies.pkl", 'rb') as f:
+#     print(pickle.load(f))
 # print('-'*100)
 # lenght = len(proxies)
 # n = 100

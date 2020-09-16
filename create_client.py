@@ -51,7 +51,7 @@ dict_db = get_data_from_db()
 if __name__ == '__main__':
     ip, port = get_random_proxy()
     # for i in cur.execute("Select ID from Account").fetchall():
-    x = 8
+    x = 19
     print("Входим в аккаунт: " + dict_db[x]["PHONE"])
     filename = str("anon" + str(x))
     client = TelegramClient(f'anons/{filename}', int(dict_db[x]["API_ID"]), str(dict_db[x]["API_HASH"]),
