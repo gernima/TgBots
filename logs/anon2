@@ -1507,3 +1507,16 @@ INFO     2020-09-14 20:42:06.209784 Входим в аккаунт: +79112214250
 INFO     №2 Proxy 188.120.245.247:12432
 INFO     LTC Click Bot
 INFO     №2, balance - 3.857e-05
+INFO     2020-09-16 13:09:10.524125 Входим в аккаунт: +79112214250
+INFO     №2 Proxy 134.209.202.38:40001
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     2020-09-16 13:09:41.204284 Входим в аккаунт: +79112214250
+INFO     №2 Proxy 79.111.91.106:8080
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     2020-09-16 13:11:06.950257 Входим в аккаунт: +79112214250
+INFO     №2 Proxy 134.209.202.38:40001
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     2020-09-16 13:11:39.606505 Входим в аккаунт: +79112214250
+INFO     №2 Proxy 161.97.71.182:8898
+INFO     LTC Click Bot
+INFO     №2, balance - 5.968e-05

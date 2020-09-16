@@ -34,31 +34,9 @@ def get_random_proxy():
     return str(proxy[0]), int(proxy[1])
 
 
-def get_data_from_db():
-    # try:
-    #     lock.acquire(True)
-    a = {}
-    b = cur.execute("Select ID from Account").fetchall()
-    a['len'] = len(b)
-    for i in b:
-        i = i[0]
-        if cur.execute(f"""Select ACTIVITY from Account WHERE ID = '{i}'""").fetchone()[0].strip() == "ON":
-            a[i] = {'PHONE': '', 'PASS': '', 'API_ID': '', 'API_HASH': '', 'LITECOIN': '', 'DEVICE': ''}
-            a[i]['PHONE'] = cur.execute(f"SELECT PHONE FROM Account WHERE ID = '{i}'").fetchone()[0]
-            a[i]['PASS'] = cur.execute(f"SELECT PASS FROM Account WHERE ID = '{i}'").fetchone()[0]
-            a[i]['API_ID'] = cur.execute(f"SELECT API_ID FROM Account WHERE ID = '{i}'").fetchone()[0]
-            a[i]['API_HASH'] = cur.execute(f"SELECT API_HASH FROM Account WHERE ID = '{i}'").fetchone()[0]
-            a[i]['LITECOIN'] = cur.execute(f"SELECT LITECOIN FROM Account WHERE ID = '{i}'").fetchone()[0]
-            a[i]['DEVICE'] = cur.execute(f"SELECT DEVICE FROM Account WHERE ID = '{i}'").fetchone()[0]
-            a[i]["BALANCE"] = float()
-    return a
-    # finally:
-    #     lock.release()
-
-
 def auth_client(filename, x, ip, port):
-    client = TelegramClient(f'anons/{filename}', int(dict_db[x]["API_ID"]), str(dict_db[x]["API_HASH"]),
-                            device_model=dict_db[x]["DEVICE"], proxy=(SOCKS5, ip, port))
+    client = TelegramClient(f'anons/{filename}', int(dict_db["API_ID"]), str(dict_db["API_HASH"]),
+                            device_model=dict_db["DEVICE"], proxy=(SOCKS5, ip, port))
     return client
 
 
@@ -95,13 +73,13 @@ def take_balance(client, tegmo):
     msgs = client.get_messages(tegmo, limit=1)
     for mes in msgs:
         if re.search(r'Enter the amount to withdraw:', mes.message):
-            if float(dict_db[x]["BALANCE"]) > 0.0004:
-                client.send_message(bot, str(dict_db[x]["BALANCE"]))
+            if float(dict_db["BALANCE"]) > 0.0004:
+                client.send_message(bot, str(dict_db["BALANCE"]))
             else:
                 client.send_message(bot, "0.0004")
     time.sleep(3)
     client.send_message(bot, "✅ Confirm")
-    logger.info(f"№{x}, withdraw - {dict_db[x]['BALANCE']}")
+    logger.info(f"№{x}, withdraw - {dict_db['BALANCE']}")
 
 
 def withdraw(client, x, tegmo, bot, logger):
@@ -110,7 +88,7 @@ def withdraw(client, x, tegmo, bot, logger):
     msgs = client.get_messages(tegmo, limit=1)
     for mes in msgs:
         if re.search(r'To withdraw, enter your Litecoin address:', mes.message):
-            client.send_message(bot, dict_db[x]["LITECOIN"])
+            client.send_message(bot, dict_db["LITECOIN"])
             time.sleep(3)
             take_balance(client, tegmo)
         elif re.search(r'Enter the amount to withdraw:', mes.message):
@@ -118,21 +96,18 @@ def withdraw(client, x, tegmo, bot, logger):
 
 
 def check_withdraw(client, x, tegmo, bot, logger):
-    logger.info(f"№{x}, balance - {dict_db[x]['BALANCE']}")
-    if float(dict_db[x]["BALANCE"]) >= 0.0004:
-        logger.info(f"№{x}, start withdraw - {dict_db[x]['BALANCE']}")
+    logger.info(f"№{x}, balance - {dict_db['BALANCE']}")
+    if float(dict_db["BALANCE"]) >= 0.0004:
+        logger.info(f"№{x}, start withdraw - {dict_db['BALANCE']}")
         withdraw(client, x, tegmo, bot, logger)
 
 
-args = argv[1].split(' ')
-x = int(args[0])
+x = int(argv[1])
 # x = 2
 ua = FakeUserAgent()
-db = sqlite3.connect('Account.db')
-cur = db.cursor()
 # bots = ['LTC Click Bot', 'BTC Click Bot', 'ZEC Click Bot', 'BCH Click Bot', 'DOGE Click Bot']
 bots = ['LTC Click Bot']
-dict_db = get_data_from_db()
+dict_db = {'PHONE': argv[2], 'PASS': argv[3], 'API_ID': int(argv[4]), 'API_HASH': argv[5], 'LITECOIN': argv[6], 'DEVICE': argv[7]}
 filename = f"anon{x}"
 logger = logging.getLogger(f'logs/{filename}')
 logger.setLevel(logging.INFO)
@@ -146,7 +121,7 @@ ch.setLevel(logging.INFO)
 formatter = logging.Formatter('%(levelname)-8s %(message)s')
 ch.setFormatter(formatter)
 logger.addHandler(ch)
-logger.info(f"{datetime.datetime.now()} Входим в аккаунт: " + str(dict_db[x]["PHONE"]))
+logger.info(f"{datetime.datetime.now()} Входим в аккаунт: " + str(dict_db["PHONE"]))
 ok = False
 while ok is False:
     ip, port = get_random_proxy()
@@ -154,7 +129,7 @@ while ok is False:
         logger.info(f"№{x} Proxy {ip}:{port}")
         client = auth_client(filename, x, ip, port)
         password = lambda x: x
-        client.start(password=password(dict_db[x]["PASS"]))
+        client.start(password=password(dict_db["PASS"]))
         ok = True
     except Exception as e:
         logger.error(f"Failed login account №{x}, {e}")
@@ -172,7 +147,7 @@ while True:
         for dlg in dlgs:
             if dlg.title == bot:
                 tegmo = dlg
-        dict_db[x]["BALANCE"] = float(get_balance(client, bot, tegmo, x))
+        dict_db["BALANCE"] = float(get_balance(client, bot, tegmo, x))
         check_withdraw(client, x, tegmo, bot, logger)
         client.send_message(bot, "🖥 Visit sites")
         time.sleep(10)
