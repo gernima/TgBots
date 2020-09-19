@@ -59,4 +59,4 @@ for i in range(from_n, to_n):
     # print(i)
     thread = Thread(target=start_process, args=(i + 1,))
     thread.start()
-    time.sleep(1)
+    time.sleep(3)
