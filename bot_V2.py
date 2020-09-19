@@ -160,7 +160,7 @@ while True:
                 break
             if n % 10 == 0 and n != 0:
                 logger.info(f"{datetime.datetime.now()} №{x} Пройдено циклов: " + str(n))
-            if n == 1000:
+            if n == 500:
                 logger.info(f'{datetime.datetime.now()} №{x} Переходим на другого бота, лимит заданий')
                 break
             msgs = client.get_messages(tegmo, limit=1)
