@@ -13,8 +13,12 @@ import numpy
 import pyautogui
 from fake_useragent import UserAgent
 from random import sample
+from transliterate import translit, get_available_language_codes
 
-print(sample([1,2,3,4,5], 1))
+# print(translit("Иван Иванов", reversed=True))
+a = [1, 2]
+s = 12345
+print()
 # x = 1
 # dict_db = [1, 2,3,4,5]
 # for i in range(5):

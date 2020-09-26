@@ -20,9 +20,11 @@ import os
 import shutil
 from random import sample, randint
 import sqlite3
-from telethon import TelegramClient
+from telethon import TelegramClient, events, sync, functions, types
 from socks import SOCKS5
 import subprocess, signal
+from transliterate import translit
+from string import hexdigits
 
 
 class Coinomi:
@@ -161,7 +163,7 @@ class Proxy:
         print(archives)
         for archive in archives:
             self.driver.get(archive)
-            sleep(5)
+            sleep(10)
             for j in self.get_proxies_from_checker():
                 a = j.split(":")
                 res.append([a[0], a[1]])
@@ -270,7 +272,9 @@ class RegBot:
         self.password = filename.split(" ")[0].replace('.', '')
         self.url = "https://my.telegram.org/auth?to=apps"
         self.groups = ['@LOWCS','@lifeyt','@breakingmash','@ikniga','@yurydud','@audioknigi_channel','@bazabazon','@muzyka_muzika', '@chop_choop', '@topor', '@darkxaxa', '@Plan_P', '@intimology_sex', '@pocketyt', '@black_side_link', '@toplesofficial', '@skillget', '@special_tg']
-        self.bot_groups = ['@Litecoin_click_bot']
+        self.bot_groups = ['@Litecoin_click_bot', "@CorpBisbot_newbot", "@Eternal_Money_Bot", "@Toptgmoney_bot",
+                           "@TGMoneygram_bot", "@TGSTAR_BOT", "@Nicetgbot", "@TimCorpbis", "@TimCorpViews", "@eternal_cash",
+                           "@Cheat_views", "@TGSTAR_INFO", "@TGSTAR_WORK", "@informtg", "@Bot_notifications"]
         self.api_id = ""
         self.api_hash = ""
         self.device = self.get_device()
@@ -280,15 +284,40 @@ class RegBot:
         # self.vpn.open()
         # self.vpn.on()
 
-        open_telegram(filename)
+        # open_telegram(filename)
         sleep(1)
         # pyautogui.prompt('Open Tg')
-        self.add_groups()
-        self.reg_app()
-        self.create_anon()
+        # self.add_groups()
+        # self.reg_app()
+        # self.create_anon()
+        self.auth()
+        self.set_avatar()
+        self.set_username()
+        self.join_to_bots()
         sleep(5)
-        close_telegram()
-        sleep(5)
+        # close_telegram()
+        # sleep(5)
+
+    def set_avatar(self):
+        file = sample(os.listdir("avatars/"), 1)[0]
+        self.client(functions.photos.UploadProfilePhotoRequest(
+            file=self.client.upload_file(f'avatars/{file}')
+        ))
+
+    def set_username(self):
+        added = "".join(sample(list(hexdigits), 3))
+        a = self.client.get_me().stringify().split("\n")[16:18]
+        info = {}
+        for i in a:
+            i = i.replace("'", "").replace("\t", "").replace(",", "")
+            c = i.split("=")
+            info[c[0]] = c[1]
+        name = "".join((str(info["first_name"]) + str(info['last_name'])).split())
+        username = (translit(name, reversed=True) + added).replace("'","")
+        print(username)
+        self.client(functions.account.UpdateUsernameRequest(
+            username=username
+        ))
 
     def save_to_db(self):
         # key = pyautogui.prompt('Enter wallet key')
@@ -301,11 +330,43 @@ class RegBot:
         x = str(cur.execute(f"""Select ID from Account where PHONE='{self.phone}'""").fetchone()[0])
         filename = str("anon" + x)
         print(f"Входим в аккаунт {filename}: " + self.phone)
-        client = auth_client(filename, x, self.proxy[0], self.proxy[1], self.api_id, self.api_hash, self.device)
+        self.client = auth_client(filename, x, self.proxy[0], self.proxy[1], self.api_id, self.api_hash, self.device)
         password = lambda x: x
         pyautogui.confirm('Write code and Press enter')
-        client.start(password=password(self.password))
+        self.client.start(password=password(self.password))
         sleep(1)
+
+    def auth(self):
+        x = str(cur.execute(f"""Select ID from Account where PHONE='{self.phone}'""").fetchone()[0])
+        filename = str("anon" + x)
+        self.api_id = cur.execute(f"""Select API_ID from Account where PHONE='{self.phone}'""").fetchone()[0]
+        self.api_hash = cur.execute(f"""Select API_HASH from Account where PHONE='{self.phone}'""").fetchone()[0]
+        self.device = cur.execute(f"""Select DEVICE from Account where PHONE='{self.phone}'""").fetchone()[0]
+        self.password = cur.execute(f"""Select PASS from Account where PHONE='{self.phone}'""").fetchone()[0]
+        ok = False
+        while ok is False:
+            self.proxy = get_random_proxy()
+            try:
+                self.client = auth_client(filename, x, self.proxy[0], self.proxy[1], self.api_id, self.api_hash,
+                                          self.device)
+                password = lambda x: x
+                self.client.start(password=password(self.password))
+                ok = True
+            except Exception as e:
+                self.proxy = get_random_proxy()
+
+    def join_to_bots(self):
+        for bot in self.bot_groups:
+            try:
+                self.join(bot)
+            except:
+                try:
+                    self.join(bot.replace("@", ""))
+                except:
+                    self.client.send_message(bot, "/start")
+
+    def join(self, chanell):
+        self.client(functions.channels.JoinChannelRequest(channel=chanell))
 
     def get_ltc_key_from_coinomi(self):
         wallet = Coinomi()
@@ -381,8 +442,8 @@ class RegBot:
 
     def add_groups(self):
         find_and_click_img("imgs/telegram_search.png", 0.9, x_plus=60)
-        groups = self.bot_groups.copy()
-        groups.extend(sample(self.groups, 5))
+        # groups = self.bot_groups.copy()
+        groups = sample(self.groups, 5)
         for group in groups:
             pyautogui.write(group)
             sleep(2)
@@ -412,7 +473,10 @@ coinomi_password = "wallet0159456"
 Proxy(500)
 # res_accs = get_completed_bots_from_folder()
 # print(res_accs)
-# RegBot(res_accs[0])
+# for file in os.listdir(bots_dir)[15:]:
+#     if "template" not in file and "BANNED" not in file.upper() and "копия" not in file.lower():
+#         print(file)
+#         RegBot(file)
 # coinomi = Coinomi()
 # for i in range(6):
 #     coinomi.create_wallet()

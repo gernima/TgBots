@@ -1,4 +1,4 @@
-Telethon~=1.15.0
+Telethon~=1.16.4
 beautifulsoup4
 colorama~=0.4.3
 selenium~=3.141.0
@@ -8,4 +8,11 @@ requests~=2.24.0
 PySocks~=1.7.1
 fake-useragent
 rq
+transliterate
 
+opencv-python~=4.3.0.36
+numpy~=1.19.1
+pyscreenshot~=2.2
+PyAutoGUI~=0.9.50
+smshuborg~=1.2.6
+mss~=6.0.0
