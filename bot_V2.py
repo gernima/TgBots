@@ -541,16 +541,11 @@ while ok is False:
         client.start(password=password(dict_db["PASS"]))
         ok = True
     except Exception as e:
-        logger.error(f"Failed login account №{x}, {e}")
-        proxies.remove([ip, str(port)])
-        pickle.dump(proxies, open(f"proxies.pkl", "wb"))
-        print(f"№{x} remove proxy {ip}:{port} n-proxies:{len(proxies)}")
-        # sleep(300)
-dlgs = client.get_dialogs()
-for dlg in dlgs:
-    if dlg.title == "Новое задание с бота @Toptgmoney_bot":
-        print(dlg)
-input("enter")
+        # logger.error(f"Failed login account №{x}, {e}")
+        # proxies.remove([ip, str(port)])
+        # pickle.dump(proxies, open(f"proxies.pkl", "wb"))
+        # print(f"№{x} remove proxy {ip}:{port} n-proxies:{len(proxies)}")
+        sleep(300)
 while True:
     logger.info("Очередь аккаунта № " + str(x))
     bot = LTCBot(client, x, logger, ch)
