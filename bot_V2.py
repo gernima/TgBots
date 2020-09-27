@@ -220,7 +220,6 @@ class EarnBot:
                                                               "view": "Для начисления нажмите на кнопку:",
                                                               "end_tasks": ["Задания кончились"],
                                                               "go_to_bot": "Перейдите в бота",
-                                                          "forward": "перешлите любое сообщение",
                                                               "go_to_chanell": "Вступите в группу",
                                                               "earn": "заработать",
                                                               "bonus": "бонус",
@@ -236,7 +235,6 @@ class EarnBot:
                                                               "view": "Для начисления нажмите на кнопку:",
                                                               "end_tasks": ["Задания кончились", "Задания закончились"],
                                                               "go_to_bot": ["Перейдите в бота"],
-                                                          "forward": "перешлите любое сообщение",
                                                               "go_to_chanell": ["Вступите в группу"],
                                                               "earn": "🤑 Выберите способ заработка 👇",
                                                               "bonus": "бонус",
@@ -253,7 +251,6 @@ class EarnBot:
                                                           "view": "Для начисления нажмите на кнопку:",
                                                           "end_tasks": ["Задания кончились", "Задания закончились"],
                                                           "go_to_bot": ["Перейдите в бота"],
-                                                          "forward": "перешлите любое сообщение",
                                                           "go_to_chanell": ["Вступите в группу"],
                                                           "earn": "🚀 Как Вы хотите заработать?",
                                                           "bonus": "бонус",
@@ -271,7 +268,6 @@ class EarnBot:
                                                  "view": "Для начисления нажмите на кнопку:",
                                                  "end_tasks": ["Задания кончились", "Задания закончились"],
                                                  "go_to_bot": ["Перейдите в бота"],
-                                                 "forward": "перешлите любое сообщение",
                                                  "go_to_chanell": ["Подпишитесь на канал", "Вступите в группу"],
                                                  "earn": "💰 Вы можете заработать:",
                                                  "bonus": "бонус",
@@ -289,7 +285,6 @@ class EarnBot:
                                                  "view": "Для начисления нажмите на кнопку:",
                                                  "end_tasks": ["Задания кончились", "Задания закончились"],
                                                  "go_to_bot": ["Перейдите в бота"],
-                                                 "forward": "перешлите любое сообщение",
                                                  "go_to_chanell": ["Подпишитесь на канал", "Вступите в группу"],
                                                  "earn": "🚀 Как Вы хотите заработать?",
                                                  "bonus": "бонус",
@@ -351,7 +346,7 @@ class EarnBot:
 
     def earn_go_to_bot(self, mes):
         forward = False
-        if self.bot_messages[self.name]["output"]["forward"] in mes.message and "затем вернитесь в бот" not in mes.message:
+        if "перешлите любое сообщение" in mes.message.lower() and "затем вернитесь в бот" not in mes.message.lower():
             forward = True
         url = mes.reply_markup.rows[0].buttons[0].url.split("/")[-1].split("?")[0]
         # print(mes.reply_markup.rows[0].buttons[0].url, url, forward)
@@ -368,13 +363,14 @@ class EarnBot:
                     return
         sleep(1)
         if forward:
-            mes = self.client.get_messages(url, limit=1)[-1]
-            self.client.forward_messages(self.name, mes.id, url)
+            new_mes = self.client.get_messages(url, limit=1)[-1]
+            self.client.forward_messages(self.name, new_mes.id, url)
         else:
             self.click_callback(mes, 1, 0)
+            sleep(10)
         if not self.check_reward():
             self.skip(mes)
-            self.earn_go_to_bot(mes)
+            # self.earn_go_to_bot(new_mes)
 
     def skip(self, mes):
         try:
@@ -389,7 +385,8 @@ class EarnBot:
 
     def check_reward(self):
         sleep(2)
-        if "начислено" in self.client.get_messages(self.name, limit=1)[-1].message:
+        mes = self.client.get_messages(self.name, limit=1)[-1].message
+        if "начислено" in mes:
             return True
         return False
 
@@ -541,7 +538,7 @@ while ok is False:
         client.start(password=password(dict_db["PASS"]))
         ok = True
     except Exception as e:
-        # logger.error(f"Failed login account №{x}, {e}")
+        logger.error(f"Failed login account №{x}, {e}")
         # proxies.remove([ip, str(port)])
         # pickle.dump(proxies, open(f"proxies.pkl", "wb"))
         # print(f"№{x} remove proxy {ip}:{port} n-proxies:{len(proxies)}")
@@ -550,14 +547,10 @@ while True:
     logger.info("Очередь аккаунта № " + str(x))
     bot = LTCBot(client, x, logger, ch)
     bot.work()
-    for bot in bots_char:
-        logger.info(f"{bot}, {bots_char[bot][0]}, {bots_char[bot][1]}")
+    for bot in list(bots_char):
+        logger.info(f"№{x}, {bot}")
         bot = EarnBot(bot, bots_char[bot][0], client, x, logger, ch, bots_char[bot][1])
         bot.work()
     logger.info(f"№{x}, Wait")
     sleep(1800)
-# updates = bot.client(ImportChatInviteRequest('AAAAAEHbEkejzxUjAUCfYg'))
-# if x == y + 1:
-#     x = y
-# else:
-#     x = y + 1
+

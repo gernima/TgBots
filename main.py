@@ -43,7 +43,7 @@ lock = Lock()
 db = sqlite3.connect('Account.db')
 cur = db.cursor()
 dict_db = get_data_from_db()
-# x = 20
+# x = 17
 # process = subprocess.Popen([sys.executable, "bot_V2.py", str(x), dict_db[x]["PHONE"], dict_db[x]["PASS"],
 #                                     dict_db[x]["API_ID"], dict_db[x]["API_HASH"], dict_db[x]["LITECOIN"], dict_db[x]["DEVICE"]])
 # process.wait()
