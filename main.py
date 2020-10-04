@@ -53,6 +53,7 @@ to_n = int(argv[2])
 print(f"Start bots from {from_n} to {to_n}")
 for i in range(from_n, to_n):
     # print(i)
-    thread = Thread(target=start_process, args=(i + 1,))
-    thread.start()
-    time.sleep(2)
+    if i + 1 in dict_db:
+        thread = Thread(target=start_process, args=(i + 1,))
+        thread.start()
+        time.sleep(2)
