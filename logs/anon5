@@ -1380,3 +1380,16 @@ INFO     №5 Proxy 95.174.67.50:18080
 INFO     LTC Click Bot
 INFO     2020-09-14 19:20:20.934398 Входим в аккаунт: +79819809142
 INFO     №5 Proxy 188.120.245.247:12432
+INFO     2020-10-04 20:05:16.259128 Входим в аккаунт: +79819809142
+INFO     №5 Proxy 8.209.91.61:1080
+INFO     2020-10-04 20:05:46.156256 Входим в аккаунт: +79819809142
+INFO     №5 Proxy 165.227.145.114:9050
+ERROR    Failed login account №5, Connection to Telegram failed 5 time(s)
+INFO     2020-10-04 20:06:15.925048 Входим в аккаунт: +79819809142
+INFO     №5 Proxy 185.61.149.233:9070
+ERROR    Failed login account №5, Connection to Telegram failed 5 time(s)
+INFO     2020-10-04 20:07:58.541468 Входим в аккаунт: +79819809142
+INFO     №5 Proxy 89.22.152.194:4216
+INFO     Очередь аккаунта № 5
+INFO     LTC Click Bot
+INFO     №5, balance - 0.00020091
