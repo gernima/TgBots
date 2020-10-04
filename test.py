@@ -1,24 +1,37 @@
-from fake_useragent import FakeUserAgent
-import pprint
-import logging
-from time import sleep
-import os
-from datetime import timedelta, date, datetime
-import pickle
-import shutil
-import numpy as np
-import cv2
-import mss
-import numpy
-import pyautogui
-from fake_useragent import UserAgent
-from random import sample
-from transliterate import translit, get_available_language_codes
+# from fake_useragent import FakeUserAgent
+# import pprint
+# import logging
+# from time import sleep
+# import os
+# from datetime import timedelta, date, datetime
+# import pickle
+# import shutil
+# import numpy as np
+# import cv2
+# import mss
+# import numpy
+# import pyautogui
+# from fake_useragent import UserAgent
+# from random import sample
+# from transliterate import translit, get_available_language_codes
 
 # print(translit("Иван Иванов", reversed=True))
-a = [1, 2]
-s = 12345
-print()
+# a = [1, 2]
+# s = 12345
+# print()
+import requests
+
+headers = {
+    "apikey": "c3b566c0-04b6-11eb-9501-5701751a06f9"
+}
+params = (
+   ("url","https://freegeoip.app/json/"),
+   ("render","true"),
+   ("keep_headers","true"),
+)
+
+response = requests.get('https://app.zenscrape.com/api/v1/get', headers=headers, params=params)
+print(response.text)
 # x = 1
 # dict_db = [1, 2,3,4,5]
 # for i in range(5):
