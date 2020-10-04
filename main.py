@@ -43,16 +43,16 @@ lock = Lock()
 db = sqlite3.connect('Account.db')
 cur = db.cursor()
 dict_db = get_data_from_db()
-x = 9
-process = subprocess.Popen([sys.executable, "bot_V2.py", str(x), dict_db[x]["PHONE"], dict_db[x]["PASS"], dict_db[x]["API_ID"], dict_db[x]["API_HASH"], dict_db[x]["LITECOIN"], dict_db[x]["DEVICE"]])
-process.wait()
+# x = 9
+# process = subprocess.Popen([sys.executable, "bot_V2.py", str(x), dict_db[x]["PHONE"], dict_db[x]["PASS"], dict_db[x]["API_ID"], dict_db[x]["API_HASH"], dict_db[x]["LITECOIN"], dict_db[x]["DEVICE"]])
+# process.wait()
 # time.sleep(2)
-# input("Нажми Enter чтобы запустить...")
-# from_n = int(argv[1]) - 1
-# to_n = int(argv[2])
-# print(f"Start bots from {from_n} to {to_n}")
-# for i in range(from_n, to_n):
-#     # print(i)
-#     thread = Thread(target=start_process, args=(i + 1,))
-#     thread.start()
-#     time.sleep(2)
+input("Нажми Enter чтобы запустить...")
+from_n = int(argv[1]) - 1
+to_n = int(argv[2])
+print(f"Start bots from {from_n} to {to_n}")
+for i in range(from_n, to_n):
+    # print(i)
+    thread = Thread(target=start_process, args=(i + 1,))
+    thread.start()
+    time.sleep(2)
