@@ -1103,3 +1103,12 @@ ERROR    Failed login account №1, Connection to Telegram failed 5 time(s)
 INFO     2020-09-14 20:22:44.576912 Входим в аккаунт: +79918197059
 INFO     №1 Proxy 45.80.68.68:1080
 ERROR    Failed login account №1, Connection to Telegram failed 5 time(s)
+INFO     2020-10-15 21:23:50.479404 Входим в аккаунт: +79918197059
+INFO     №1 Proxy 51.132.70.96:9300
+INFO     Очередь аккаунта № 1
+INFO     LTC Click Bot
+INFO     №1, balance - 0.00022419
+INFO     2020-10-15 21:36:04.879033 Входим в аккаунт: +79918197059
+INFO     №1 Proxy 80.252.133.26:1080
+INFO     Очередь аккаунта № 1
+INFO     №1, CorpBisbot_newbot

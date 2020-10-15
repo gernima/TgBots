@@ -227,7 +227,7 @@ class EarnBot:
                                                    "before_change_task_n": False,
                                                    "task_n": {0: 3, 3: 6},
                                                    "break_task_n": 6,
-                                                   "skip_button": [1, 0],
+                                                   "skip_button": [[1, 0], [2, 0]],
                                                     "check_robot": False},
                             "Eternal_Money_Bot": {"output": {"join_chanell1": "❗️ Для использования бота подпишитесь на наш канал: ",
                                                               "join_chanell2": "🚀 Для заработка подпишитесь на наш канал с просмотрами: ",
@@ -543,8 +543,8 @@ while ok is False:
         sleep(300)
 while True:
     logger.info("Очередь аккаунта № " + str(x))
-    bot = LTCBot(client, x, logger, ch)
-    bot.work()
+    # bot = LTCBot(client, x, logger, ch)
+    # bot.work()
     for bot in list(bots_char):
         logger.info(f"№{x}, {bot}")
         bot = EarnBot(bot, bots_char[bot][0], client, x, logger, ch, bots_char[bot][1])
