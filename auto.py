@@ -470,7 +470,7 @@ cur = db.cursor()
 bots_dir = "E:\Боты"
 days_acc_stay = 0
 coinomi_password = "wallet0159456"
-Proxy(500)
+Proxy(1000)
 # res_accs = get_completed_bots_from_folder()
 # print(res_accs)
 # for file in os.listdir(bots_dir)[15:]:
