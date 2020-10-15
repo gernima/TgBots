@@ -2,3 +2,183 @@ INFO     2020-09-14 19:20:19.853398 Входим в аккаунт: +380731209983
 INFO     №9 Proxy 137.74.64.246:1082
 INFO     2020-10-04 20:12:01.364031 Входим в аккаунт: +380731209983
 INFO     №9 Proxy 165.227.145.114:9050
+INFO     2020-10-15 19:44:08.059673 Входим в аккаунт: +380731209983
+INFO     №9 Proxy 185.255.96.50:1080
+INFO     2020-10-15 19:45:17.257795 Входим в аккаунт: +380731209983
+INFO     №9 Proxy 45.80.68.43:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 77.82.86.217:3128
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 20.50.215.44:9300
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 45.80.70.195:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 37.57.107.99:9999
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 185.61.149.233:3014
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 185.61.149.233:9070
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 159.89.237.201:40001
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 188.227.174.95:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 188.166.104.152:41394
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 64.225.64.126:40001
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 20.46.192.81:9300
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 185.61.149.233:9070
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 161.97.71.182:8890
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 213.136.89.190:57991
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 185.206.215.226:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 188.120.245.247:55432
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 52.249.208.187:9300
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 45.80.68.89:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 51.38.129.49:1080
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 188.227.174.95:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 188.120.245.247:55432
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 45.80.68.43:1080
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 162.223.88.116:8443
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 188.166.104.152:41394
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 144.76.99.207:1403
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 52.249.208.187:9300
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 188.120.245.247:55432
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 52.249.208.187:9300
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 213.136.89.190:57991
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 45.80.68.89:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 51.38.129.49:1080
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 185.61.149.233:9070
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 80.87.200.140:9050
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 81.17.20.50:44105
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 20.46.192.81:9300
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 62.122.213.164:8080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 165.227.166.177:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 185.255.96.50:2007
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 45.80.70.195:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 193.47.35.118:9080
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 80.252.133.26:1080
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 161.97.71.182:8890
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 45.80.70.45:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 45.84.226.50:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 161.97.71.182:8890
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 64.225.64.126:40001
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 144.76.99.207:1509
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 104.248.48.176:30588
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 80.87.200.140:9050
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 20.50.215.44:9300
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 206.189.121.116:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 188.166.104.152:41394
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 20.50.215.41:9300
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 45.80.70.45:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 20.46.192.81:9300
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 185.61.149.233:3014
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 188.120.245.247:55432
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 178.165.44.122:1080
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 188.213.171.182:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 45.80.68.206:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 8.209.91.61:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 62.122.213.164:8080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 45.84.226.50:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 8.209.91.61:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 193.47.35.118:9080
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 188.120.245.247:55432
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 45.80.70.45:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 185.255.96.50:2007
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 37.110.66.21:9050
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 87.241.90.113:10200
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 51.132.70.96:9300
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 20.50.215.44:9300
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 108.61.75.207:9000
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 80.248.225.58:1181
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 80.248.225.58:1181
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 213.136.89.190:57991
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 206.189.121.116:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 52.249.208.187:9300
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 51.83.201.185:3306
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 20.50.215.41:9300
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 188.213.171.182:1080
+INFO     2020-10-15 20:47:35.899600 Входим в аккаунт: +380731209983
+INFO     №9 Proxy 142.93.245.246:30588
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 159.89.237.201:40001
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 82.146.63.6:1080
+ERROR    Failed login account №9, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №9 Proxy 188.213.171.182:1080
+INFO     2020-10-15 20:59:00.933615 Входим в аккаунт: +380731209983
+INFO     №9 Proxy 45.80.68.68:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 45.80.70.195:1080
+ERROR    Failed login account №9, Connection to Telegram failed 5 time(s)
+INFO     №9 Proxy 188.120.245.247:55432

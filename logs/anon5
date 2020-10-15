@@ -1393,3 +1393,46 @@ INFO     №5 Proxy 89.22.152.194:4216
 INFO     Очередь аккаунта № 5
 INFO     LTC Click Bot
 INFO     №5, balance - 0.00020091
+INFO     2020-10-15 19:29:42.168948 Входим в аккаунт: +79819809142
+INFO     №5 Proxy 206.189.121.116:1080
+INFO     2020-10-15 19:44:01.944143 Входим в аккаунт: +79819809142
+INFO     №5 Proxy 185.61.149.233:3014
+ERROR    Failed login account №5, Connection to Telegram failed 5 time(s)
+INFO     №5 Proxy 80.248.225.58:1181
+INFO     2020-10-15 19:45:11.129784 Входим в аккаунт: +79819809142
+INFO     №5 Proxy 45.80.68.68:1080
+ERROR    Failed login account №5, Connection to Telegram failed 5 time(s)
+INFO     №5 Proxy 37.57.107.99:9999
+ERROR    Failed login account №5, Connection to Telegram failed 5 time(s)
+INFO     №5 Proxy 20.50.215.41:9300
+ERROR    Failed login account №5, Connection to Telegram failed 5 time(s)
+INFO     №5 Proxy 108.61.75.207:9000
+ERROR    Failed login account №5, Connection to Telegram failed 5 time(s)
+INFO     №5 Proxy 45.80.68.206:1080
+ERROR    Failed login account №5, Connection to Telegram failed 5 time(s)
+INFO     №5 Proxy 80.252.133.26:1080
+INFO     Очередь аккаунта № 5
+INFO     LTC Click Bot
+INFO     №5, balance - 0.00029459
+INFO     2020-10-15 20:01:29.955723 №5 Переходим на другого бота, нет заданий
+INFO     №5, balance - 0.00029459
+INFO     2020-10-15 20:47:30.018479 Входим в аккаунт: +79819809142
+INFO     №5 Proxy 52.249.208.187:9300
+ERROR    Failed login account №5, Connection to Telegram failed 5 time(s)
+INFO     №5 Proxy 188.213.171.182:1080
+ERROR    Failed login account №5, Connection to Telegram failed 5 time(s)
+INFO     №5 Proxy 217.75.90.28:39880
+INFO     2020-10-15 20:58:55.945574 Входим в аккаунт: +79819809142
+INFO     №5 Proxy 161.97.71.182:8890
+ERROR    Failed login account №5, Connection to Telegram failed 5 time(s)
+INFO     №5 Proxy 104.248.48.176:30588
+ERROR    Failed login account №5, Connection to Telegram failed 5 time(s)
+INFO     №5 Proxy 45.80.68.43:1080
+ERROR    Failed login account №5, Connection to Telegram failed 5 time(s)
+INFO     №5 Proxy 188.166.33.15:9050
+INFO     2020-10-15 21:03:44.697502 Входим в аккаунт: +79819809142
+INFO     №5 Proxy 108.61.75.207:9000
+ERROR    Failed login account №5, Connection to Telegram failed 5 time(s)
+INFO     №5 Proxy 52.167.12.183:1080
+ERROR    Failed login account №5, Connection to Telegram failed 5 time(s)
+INFO     №5 Proxy 159.89.237.201:40001

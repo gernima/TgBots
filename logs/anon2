@@ -1520,3 +1520,105 @@ INFO     2020-09-16 13:11:39.606505 Входим в аккаунт: +79112214250
 INFO     №2 Proxy 161.97.71.182:8898
 INFO     LTC Click Bot
 INFO     №2, balance - 5.968e-05
+INFO     2020-10-15 19:29:40.410364 Входим в аккаунт: +79112214250
+INFO     №2 Proxy 188.213.171.182:1080
+INFO     2020-10-15 19:43:57.355587 Входим в аккаунт: +79112214250
+INFO     №2 Proxy 51.132.70.96:9300
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 193.47.35.118:9080
+INFO     2020-10-15 19:45:06.084832 Входим в аккаунт: +79112214250
+INFO     №2 Proxy 80.252.133.26:1080
+ERROR    Failed login account №2, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №2 Proxy 62.122.213.164:8080
+ERROR    Failed login account №2, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №2 Proxy 45.80.68.68:1080
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 45.84.226.50:1080
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 20.50.215.44:9300
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 20.50.215.41:9300
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 188.213.171.182:1080
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 94.242.55.98:9050
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 20.50.215.44:9300
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 81.17.20.50:39464
+ERROR    Failed login account №2, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №2 Proxy 52.167.12.183:1080
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 178.62.35.73:1080
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 144.76.99.207:1509
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 159.89.237.201:40001
+ERROR    Failed login account №2, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №2 Proxy 80.252.133.26:1080
+ERROR    Failed login account №2, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №2 Proxy 188.166.104.152:41394
+ERROR    Failed login account №2, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №2 Proxy 185.61.149.233:9070
+ERROR    Failed login account №2, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №2 Proxy 144.76.99.207:1509
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 144.76.99.207:1509
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 52.249.208.187:9300
+ERROR    Failed login account №2, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №2 Proxy 51.132.70.96:9300
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 185.255.96.50:2007
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 185.255.96.50:2007
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 62.122.213.164:8080
+ERROR    Failed login account №2, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №2 Proxy 144.76.99.207:1403
+ERROR    Failed login account №2, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №2 Proxy 161.97.71.182:8890
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 163.172.101.112:1080
+ERROR    Failed login account №2, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №2 Proxy 161.97.71.182:8890
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 45.80.68.89:1080
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 45.80.68.68:1080
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 45.80.70.195:1080
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 163.172.101.112:1080
+ERROR    Failed login account №2, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №2 Proxy 165.227.166.177:1080
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 20.46.192.81:9300
+INFO     2020-10-15 20:47:06.194896 Входим в аккаунт: +79112214250
+INFO     №2 Proxy 161.97.71.182:8890
+INFO     2020-10-15 20:47:25.116936 Входим в аккаунт: +79112214250
+INFO     №2 Proxy 45.80.68.43:1080
+ERROR    Failed login account №2, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №2 Proxy 52.167.12.183:1080
+INFO     2020-10-15 20:58:49.468046 Входим в аккаунт: +79112214250
+INFO     №2 Proxy 45.80.68.43:1080
+ERROR    Failed login account №2, The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest)
+INFO     №2 Proxy 64.225.64.126:40001
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 144.76.99.207:1403
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 188.120.245.247:55432
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 178.62.35.73:1080
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 94.242.55.98:9050
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 159.89.237.201:40001
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 45.80.68.206:1080
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 185.255.96.50:2007
+INFO     2020-10-15 21:03:38.708425 Входим в аккаунт: +79112214250
+INFO     №2 Proxy 185.255.96.50:1080
+ERROR    Failed login account №2, Connection to Telegram failed 5 time(s)
+INFO     №2 Proxy 20.49.139.56:9300

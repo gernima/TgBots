@@ -1,2 +1,17 @@
 INFO     2020-09-14 19:20:20.514399 Входим в аккаунт: +380935312119
 INFO     №10 Proxy 188.120.245.247:12432
+INFO     2020-10-15 19:44:11.043615 Входим в аккаунт: +380935312119
+INFO     №10 Proxy 104.248.48.251:30588
+INFO     2020-10-15 19:45:19.201352 Входим в аккаунт: +380935312119
+INFO     №10 Proxy 163.172.101.112:1080
+INFO     Очередь аккаунта № 10
+INFO     LTC Click Bot
+INFO     №10, balance - 5.86e-06
+INFO     2020-10-15 19:49:30.068394 №10 Переходим на другого бота, нет заданий
+INFO     №10, balance - 5.86e-06
+INFO     2020-10-15 20:59:04.245752 Входим в аккаунт: +380935312119
+INFO     №10 Proxy 188.213.171.182:1080
+ERROR    Failed login account №10, Connection to Telegram failed 5 time(s)
+INFO     №10 Proxy 64.225.64.126:40001
+ERROR    Failed login account №10, Connection to Telegram failed 5 time(s)
+INFO     №10 Proxy 104.248.48.176:30588

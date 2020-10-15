@@ -14,7 +14,6 @@ import webbrowser
 import urllib.request
 import os
 import sqlite3
-from fake_useragent import FakeUserAgent
 from socks import SOCKS5
 from random import randint, sample
 import logging
@@ -495,7 +494,7 @@ class RunChromeTests:
     def testMethod(self, url_rec, waitin):
         selenium_url = "http://localhost:4444/wd/hub"
         options = Options()
-        options.add_argument(f'user-agent={ua.chrome}')
+        #options.add_argument(f'user-agent={ua.chrome}')
         caps = {'browserName': 'chrome'}
         driver = webdriver.Remote(command_executor=selenium_url, desired_capabilities=caps, options=options)
         driver.maximize_window()
@@ -507,7 +506,6 @@ class RunChromeTests:
 
 x = int(argv[1])
 # x = 20
-ua = FakeUserAgent()
 dict_db = {'PHONE': argv[2], 'PASS': argv[3], 'API_ID': int(argv[4]), 'API_HASH': argv[5], 'LITECOIN': argv[6], 'DEVICE': argv[7]}
 filename = f"anon{x}"
 logger = logging.getLogger(f'logs/{filename}')

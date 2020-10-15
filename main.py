@@ -48,6 +48,8 @@ dict_db = get_data_from_db()
 # process.wait()
 # time.sleep(2)
 input("Нажми Enter чтобы запустить...")
+# from_n = 1
+# to_n = 20
 from_n = int(argv[1]) - 1
 to_n = int(argv[2])
 print(f"Start bots from {from_n} to {to_n}")
